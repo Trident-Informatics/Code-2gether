@@ -26,10 +26,17 @@ public class Compare {
         try {
 
             File changes = new File("src/lk/ijse/vcs/testing/changes.txt");
+            changes.getParentFile().mkdirs();
             changes.createNewFile();
+//            changes=changes.getAbsoluteFile();
 
-            BufferedReader earlierFileBufRdr = new BufferedReader(new FileReader(new File("src/lk/ijse/vcs/testing/Demo1.java")));
-            BufferedReader newFileBufRdr = new BufferedReader(new FileReader(new File("src/lk/ijse/vcs/testing/Demo2.java")));
+            /*Used the following to check how File functions
+            File demo1=new File("Server/src/lk/ijse/vcs/testing/Demo1.java");
+            System.out.println(demo1.getAbsolutePath());
+            System.out.println(demo1.exists());*/
+
+            BufferedReader earlierFileBufRdr = new BufferedReader(new FileReader(new File("Server/src/lk/ijse/vcs/testing/Demo1.java")));
+            BufferedReader newFileBufRdr = new BufferedReader(new FileReader(new File("Server/src/lk/ijse/vcs/testing/Demo2.java")));
             BufferedWriter resultFileBufWrtr = new BufferedWriter(new FileWriter(changes));
 
             LineNumberReader earlierLine = new LineNumberReader(earlierFileBufRdr);
